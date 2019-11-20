@@ -1,7 +1,6 @@
 package main
 
 import (
-	"math"
 	"sort"
 	"strings"
 	"time"
@@ -58,16 +57,16 @@ func SolveDay04Pt1(lines []string) error {
 	}
 
 	sort.Sort(eventsByTimeStamp(events))
-	timeChart := createTimeChartFromEvents(events)
-
+	/*timeChart :=*/ createTimeChartFromEvents(events)
 	return nil
 }
 
 func createTimeChartFromEvents(events []Event) TimeChart {
-	currentGuardId := math.MaxInt32
-	for _, event := range events {
-				
-	}
+	//currentGuardId := math.MaxInt32
+	//for _, event := range events {
+	//	//TODO: implement
+	//}
+	return nil
 }
 
 type GuardId int
