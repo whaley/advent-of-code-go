@@ -1,6 +1,9 @@
-package main
+package _018
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/whaley/advent-of-code/common"
+)
 
 func calculateRepeats(s string) map[int]bool {
 	charCounts := make(map[rune]int)
@@ -74,3 +77,14 @@ func diff(left string, right string) []int {
 	}
 	return diff
 }
+
+func RunDay02() {
+	lines := common.DelimitByNewLine(common.ReadFully("static/2018/day02.txt"))
+
+	pt1Answer := computeChecksum(lines)
+	pt2Answer := day02Pt2(lines)
+
+	fmt.Printf("Day 02 : Part 01  Answer:\n\t%d\n", pt1Answer)
+	fmt.Printf("Day 02 : Part 02  Answer:\n\t%s\n", pt2Answer)
+}
+

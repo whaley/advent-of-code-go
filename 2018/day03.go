@@ -1,7 +1,8 @@
-package main
+package _018
 
 import (
 	"fmt"
+	"github.com/whaley/advent-of-code/common"
 	"regexp"
 	"strconv"
 )
@@ -112,3 +113,22 @@ func FindNonOverlappingClaim(rects []Rectangle) (int, error) {
 	}
 	return -1, fmt.Errorf("unable to find id with non-overlapping claim")
 }
+
+func RunDay03() {
+	var rects []Rectangle
+	for _, line := range common.DelimitByNewLine(common.ReadFully("static/2018/day03.txt")) {
+		rect, err := createRect(line)
+		common.PanicOnError(err)
+		rects = append(rects, rect)
+	}
+	grid := NewGrid(rects)
+	day0301Points := grid.FilterBy(func(claims map[int]bool) bool {
+		return len(claims) > 1
+	})
+
+	id, err := FindNonOverlappingClaim(rects)
+	common.PanicOnError(err)
+	fmt.Printf("Day 03 : Part 01  Answer:\n\t%d\n", len(day0301Points))
+	fmt.Printf("Day 03 : Part 02  Answer:\n\t%d\n", id)
+}
+

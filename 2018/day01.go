@@ -1,8 +1,11 @@
-package main
+package _018
 
 import (
+	"fmt"
+	"github.com/whaley/advent-of-code/common"
 	"log"
 	"strconv"
+	"strings"
 )
 
 func computeFrequency(freqChanges []string) int {
@@ -40,3 +43,17 @@ func stringToInt(s string) int {
 	}
 	return res
 }
+
+func RunDay01() {
+	freqs := common.DelimitByNewLine(common.ReadFully("static/2018/day01.txt"))
+	for idx, freq := range freqs {
+		freqs[idx] = strings.TrimSpace(freq)
+	}
+
+	pt1Answer := computeFrequency(freqs)
+	pt2Answer := findRepeatingFrequency(freqs)
+
+	fmt.Printf("Day 01 : Part 01  Answer:\n\t%d\n", pt1Answer)
+	fmt.Printf("Day 01 : Part 02  Answer:\n\t%d\n", pt2Answer)
+}
+

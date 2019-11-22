@@ -1,6 +1,7 @@
-package main
+package _018
 
 import (
+	"github.com/whaley/advent-of-code/common"
 	"sort"
 	"strings"
 	"time"
@@ -81,3 +82,9 @@ func NewDateYMD(t time.Time) DateYMD {
 }
 
 type TimeChart map[GuardId]map[DateYMD][60]bool
+
+func RunDay04() {
+	lines := common.DelimitByNewLine(common.ReadFully("static/2018/day04.txt"))
+	err := SolveDay04Pt1(lines)
+	common.PanicOnError(err)
+}
