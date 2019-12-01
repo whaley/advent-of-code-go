@@ -1,13 +1,8 @@
 package main
 
-import (
-	. "github.com/whaley/advent-of-code/2018"
-)
+import . "github.com/whaley/advent-of-code/2019"
 
 func main() {
-	RunDay01()
-	RunDay02()
-	RunDay03()
-	RunDay04()
+	Run2019Day01()
 }
 
