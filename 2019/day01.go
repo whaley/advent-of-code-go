@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func CalcFuelForMass(mass int) int{
+func CalcFuelForMass(mass int) int {
 	x := float64(mass) / 3
 	y := int(math.Floor(x))
 	return y - 2
@@ -19,7 +19,7 @@ func recur(mass int, accum int) int {
 	if fuelNeeded <= 0 {
 		return accum
 	} else {
-		return recur(fuelNeeded, accum + fuelNeeded)
+		return recur(fuelNeeded, accum+fuelNeeded)
 	}
 }
 
@@ -37,7 +37,7 @@ func CalcFuelRequiredForAllMasses(masses []int, f func(int) int) int {
 
 func Run2019Day01() {
 	lines := common.DelimitByNewLine(common.ReadFully("static/2019/day01.txt"))
-	masses := make([]int,len(lines))
+	masses := make([]int, len(lines))
 	for i, line := range lines {
 		mass, err := strconv.Atoi(strings.TrimSpace(line))
 		common.PanicOnError(err)
@@ -46,7 +46,4 @@ func Run2019Day01() {
 
 	fmt.Printf("Day 01 : Part 01  Answer:\n\t%d\n", CalcFuelRequiredForAllMasses(masses, CalcFuelForMass))
 	fmt.Printf("Day 01 : Part 02  Answer:\n\t%d\n", CalcFuelRequiredForAllMasses(masses, CalcTotalFuelRequiredForMass))
-	//fmt.Printf("Day 01 : Part 02  Answer:\n\t%d\n", pt2Answer)
 }
-
-
