@@ -24,3 +24,11 @@ func DelimitByNewLine(s string) []string {
 	}
 	return lines
 }
+
+func Abs(x int) int {
+	if x < 0 {
+		return x * -1
+	} else {
+		return x
+	}
+}
